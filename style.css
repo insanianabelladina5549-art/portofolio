@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #262a2c, #7c7c7c, #000000);
+  background: linear-gradient(135deg, #000000, #7c7c7c, #000000);
   color: #fff;
   line-height: 1.6;
   scroll-behavior: smooth;
@@ -30,14 +30,14 @@ header {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  border: 4px solid #fff;
+  border: 4px solid #a9bafa;
   object-fit: cover;
   margin-bottom: 20px;
   animation: float 3s ease-in-out infinite;
 }
 
 h1 {
-  font-size: 2.8rem;
+  font-size: 22px;
 }
 
 .role {
@@ -65,7 +65,7 @@ h2 {
 }
 
 .card {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   padding: 20px;
   border-radius: 16px;
   backdrop-filter: blur(10px);
@@ -75,7 +75,7 @@ h2 {
 
 .card:hover {
   transform: translateY(-8px);
-  background: rgba(0, 255, 213, 0.15);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .cards-container {
@@ -108,4 +108,209 @@ footer {
 @keyframes float {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
+}
+
+/* ===== MOBILE RESPONSIVE FIX ===== */
+@media (max-width: 768px) {
+
+  header {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .role {
+    font-size: 0.95rem;
+  }
+
+  .motto {
+    font-size: 0.9rem;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+
+  .hero img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .cards-container {
+    flex-direction: column;
+  }
+
+  .project {
+    flex: 1 1 100%;
+  }
+}
+
+.filter-buttons {
+  margin-bottom: 25px;
+}
+
+.filter-buttons button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: #a9bafa;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+}
+
+.filter-buttons button:hover {
+  opacity: 0.85;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h3 {
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.modal-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: #a9bafa;
+  color: #000;
+  font-weight: 500;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.view {
+  display: inline-block;
+  margin-top: 10px;
+  color: #7b2d2d;
+  font-weight: 600;
+}
+
+.design-scroll {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 6px;
+  scroll-behavior: smooth;
+}
+
+
+.modal-image {
+  width: 100%;
+  margin-bottom: 14px;
+  border-radius: 12px;
+}
+
+.modal-video {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.social-icons i {
+  font-size: 32px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+  color: #b11226; /* bisa kamu ganti maroon */
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.popup-content {
+  background: white;
+  width: 250px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 150px auto;
+}
+
+.floating-menu{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.floating-menu a{
+  width: 45px;
+  height: 45px;
+  background: #a9bafa; 
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.floating-menu a:hover{
+  transform: scale(1.1);
+  background: #a9bafa;
+}
+
+html{
+  scroll-behavior: smooth;
 }
