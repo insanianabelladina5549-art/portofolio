@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Insania Nabelladina | Portfolio</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script>
+    
+    function filterProjects(category) {
+      const projects = document.querySelectorAll('.project');
+      projects.forEach(project => {
+        project.style.display = project.classList.contains(category)
+          ? "block"
+          : "none";
+      });
+    }
+
+    function openProject(title, desc, type) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("modalDesc").innerText = desc;
+
+      const content = document.getElementById("modalContent");
+      content.innerHTML = "";
+
+      if (type === "design") {
+        content.innerHTML = `
+        <div class="design-scroll">
+          <img src="desain1.jpg" class="modal-image">
+          <img src="desain2.jpg" class="modal-image">
+          <img src="desain3.jpg" class="modal-image">
+          <img src="desain4.jpg" class="modal-image">
+
+        `;
+      }
+
+      if (type === "web") {
+        content.innerHTML = `
+          <a href="https://belaundry-wheat.vercel.app/" target="_blank" class="btn">
+            View Repository
+          </a>
+        `;
+      }
+
+      if (type === "To-do List") {
+        content.innerHTML = `
+          <a href="https://my-to-do-list-phi-two.vercel.app/" target="_blank" class="btn">
+            View Repository
+          </a>
+        `;
+      }
+      
+
+      document.getElementById("projectModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("projectModal").style.display = "none";
+    }
+
+
+    function openIgPopup() {
+      document.getElementById("igPopup").style.display = "block";
+    }
+
+     function closeIgPopup() {
+      document.getElementById("igPopup").style.display = "none";
+    }
+
+     function toggleMenu() {
+       const menu = document.getElementById("menuItems");
+
+      if (menu.style.display === "flex") {
+          menu.style.display = "none";
+          } else {
+          menu.style.display = "flex";
+                 }
+    }
+    window.addEventListener("scroll", function () {
+  const elements = document.querySelectorAll(
+    ".animate-left, .animate-right, .animate-bottom, .animate-fade"
+  );
+
+  elements.forEach(el => {
+    const position = el.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+
+    if (position < screenHeight - 100) {
+      el.classList.add("show");
+    }
+  });
+});
+
+  </script>
+  
+</head>
+
+<body>
+
+<div class="floating-menu">
+
+  <div class="menu-items" id="menuItems">
+    <a href="#about"><i class="fa-solid fa-user"></i></a>
+    <a href="#skills"><i class="fa-solid fa-code"></i></a>
+    <a href="#projects"><i class="fa-solid fa-laptop-code"></i></a>
+    <a href="#contact"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+
+  <button class="menu-btn" onclick="toggleMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+</div>
+
+<header>
+  <div class="hero">
+    <img src="sun.jpeg" alt="Foto Insania" />
+    <h1>Insania Nabelladina</h1>
+    <p class="role">Web & Android Developer | Informatics Engineering Student</p>
+    <p class="motto">Built in Silence. Delivered with Impact.</p>
+  </div>
+</header>
+
+<section 
+id="about" class="animate-left">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      Informatics Engineering student with an interest in web development, UI/UX design, and digital creative. Experienced in developing simple web applications and creating digital content, graphic designs, and documentation. Interested in combining technical skills with creative problem-solving to create functional and engaging digital experiences.
+    </p>
+  </div>
+</section>
+
+<section id="skills" class="animate-right">
+  <h2>Skills</h2>
+
+  <div class="cards-container">
+
+    <div class="card">
+      <h3>Development</h3>
+      <div class="skill-list">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>PHP</span>
+        <span>Python</span>
+        <span>Kotlin</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>UI/UX &amp; Design</h3>
+      <div class="skill-list">
+        <span>Figma</span>
+        <span>Canva</span>
+        <span>UI/UX Design</span>
+        <span>Graphic Design</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Creative</h3>
+      <div class="skill-list">
+        <span>CapCut</span>
+        <span>Video Editing</span>
+        <span>Social Media Content</span>
+        <span>Documentation</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="projects" class="animate-bottom">
+  <h2>Projects</h2>
+
+  <div class="filter-buttons">
+    <button onclick="filterProjects('web')">Web</button>
+    <button onclick="filterProjects('design')">Design</button>
+  </div>
+
+  <div class="card project web" class="animate-fade"
+       onclick="openProject(
+         'Laundry Management System – Admin Dashboard (UI/UX Prototype)',
+         'Design and development of a user interface for a laundry management system focused on the admin role, including login and dashboard pages.',
+         'web'
+       )">
+    <h3>Laundry Management System – Admin Dashboard (UI/UX Prototype)</h3>
+    <p>Design and development of a user interface for a laundry management system focused on the admin role, including login and dashboard pages.</p>
+    
+    <h4>click here</h4>
+  </div>
+
+   <div class="card project web" class="animate-fade"
+       onclick="openProject(
+         'To-Do List Web Application',
+         'A responsive task management web app built with HTML, CSS, and JavaScript, supporting task creation, completion tracking, automatic date display, and LocalStorage integration.',
+         'To-do List'
+       )">
+    <h3>To-do List Web App</h3>
+    <p>A responsive task management web app built with HTML, CSS, and JavaScript, supporting task creation, completion tracking, automatic date display, and LocalStorage integration.</p>
+    <h4>click here</h4>
+  </div>
+
+
+
+  <div class="card project design" class="animate-right"
+       onclick="openProject(
+         'Graphic Design',
+         'Poster & social media designs.',
+         'design'
+       )">
+    <h3>Graphic Design</h3>
+    <p>Posters and social media designs.</p>
+    <h4>click here</h4>
+  </div>
+</section>
+
+
+<section id="contact" class="animate-right"> 
+  <h2>Contact</h2>
+
+  <div class="social-icons">
+
+    <!-- Email -->
+    <a href="mailto:insanianabelladina5549@gmail.com">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/insania-nabelladina-0823a538b" target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+
+    <!-- Instagram (popup) -->
+    <i class="fa-brands fa-instagram" onclick="openIgPopup()"></i>
+
+    <!-- TikTok -->
+    <a href="https://www.tiktok.com/@basshead._" target="_blank">
+      <i class="fa-brands fa-tiktok"></i>
+    </a>
+
+  </div>
+</section>
+
+
+<div id="igPopup" class="popup">
+  <div class="popup-content">
+    <h3>My Instagram</h3>
+
+    <a href="https://instagram.com/terius_un" target="_blank">
+      @terius_un
+    </a>
+
+    <a href="https://instagram.com/pixelsun_studio" target="_blank">
+      @pixelsun_studio
+    </a>
+
+    <button onclick="closeIgPopup()">Close</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Insania Nabelladina</p>
+</footer>
+
+<!-- MODAL -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+</body>
+
+</html>
